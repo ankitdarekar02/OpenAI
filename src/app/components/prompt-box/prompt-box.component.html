@@ -1,0 +1,52 @@
+<div class="container">
+    <h1 class="text-center">Fun with Open AI</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-2 col-sm-4">
+                <div class="form-group">
+                    <label for="engines">Select an engine:</label>
+                    <select formControlName="engine" class="form-select">
+                        <!-- <option disabled>Choose engine</option>
+                        <option>Choose Website</option> -->
+                        <option *ngFor="let engine of engineList">{{engine}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group purple-border prompt-container">
+            <label for="promptTextarea">Enter a Prompt:</label>
+            <textarea placeholder="Write your prompt here" formControlName="prompt" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="d-flex justify-end mt-2">
+            <button class="btn btn-primary me-3" type="submit">Submit</button>
+        </div>
+    </form>
+    <!-- <response-content [data]="responseList"></response-content> -->
+    <div class="loader" *ngIf="showLoader">Loading...</div>
+    <div *ngIf="responseList.length > 0">
+        <h4>Responses</h4>
+        <div class="response-box mb-2" *ngFor="let item of responseList; let i = index">
+            <div class="me-3 d-flex justify-end" (click)="deleteResponse(i)">
+                <a href="javascript:void(0)" class="tooltip-container fa fa-1x fa-trash delete">
+                    <span class="tooltiptext">Delete</span>
+                </a>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-xs-3">
+                    <strong>Prompt:</strong>
+                </div>
+                <div class="col-md-9 col-xs-8">
+                    <span>{{item.heading}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-xs-3">
+                    <strong>Response:</strong>
+                </div>
+                <div class="col-md-10 col-xs-9">
+                    <span>{{item.response}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
