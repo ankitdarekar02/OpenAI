@@ -21,8 +21,9 @@
             <button class="btn btn-primary me-3" type="submit">Submit</button>
         </div>
     </form>
-    <!-- <response-content [data]="responseList"></response-content> -->
+    <!-- Loader starts here-->
     <div class="loader" *ngIf="showLoader">Loading...</div>
+    <!-- Response List starts here -->
     <div *ngIf="responseList.length > 0">
         <h4>Responses</h4>
         <div class="response-box mb-2" *ngFor="let item of responseList; let i = index">
