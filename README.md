@@ -1,5 +1,5 @@
 # OpenAI
-This is a web application that sends plain text prompts to the OpenAI API and displays the results in a list.
+This is a responsive web application that sends plain text prompts to the OpenAI API and displays the results in a list.
 
 <img width="1404" alt="image" src="https://user-images.githubusercontent.com/60542567/169727331-24a49e71-8655-47dc-8900-410c0415e0f7.png">
 
